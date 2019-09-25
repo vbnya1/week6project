@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <title>Task Manager</title>
+        <link href="/css/styles.css" rel="stylesheet">
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container">
+            <div class="content">
+                <div class="header">
+                    <img src="/images/logo.png" class="logo">
+                    <nav>
+                        <ul>
+                             <li>
+                                   <a href="/">Home</a>
+                             </li>
+                            <li>
+                                <a href="/getAll">List Tasks</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class = "form-details">
+                        <form action="/addnew" method="POST">
+                           <div class="form-group">
+                                 <label for="name">Task Name</label>
+                                 <input type="text" class="form-control col-md-12" id="name" name="taskname" placeholder="Task Name" required>
+                           </div>
+                           <div class="form-group">
+                               <label for="name">Due Date</label>
+                               <input type="date" class="form-control col-md-12" id="due_date" name="duedate" placeholder="Task Due Date" required>
+                           </div>
+                           <div class="form-group">
+                                <label for="name">Assigned To</label>
+                                <input type="text" class="form-control col-md-12" id="assigned" name="assigned" placeholder="Assigned To" required>
+                            </div>
+                           <div class="form-group">
+                            <label for="name">Status</label>
+                             <select class="form-control" name="status" id="status"readonly>
+                                 <option disabled="disabled" value="Completed">Completed</option>
+                                 <option value="In Progress" selected>In Progress</option>
+                             </select>
+                          </div>
+                           <div class="form-group">
+                               <label for="description">Task Description</label>
+                               <textarea class="form-control col-md-12" id="description" name="description" rows="3" required></textarea>
+                           </div>
+                           <button type="submit" class="btn btn-primary">Add Task</button>
+                       </form>
+                   </div>
+            </div>
+        </div>
+        
+    </body>
+</html>

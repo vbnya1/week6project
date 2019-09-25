@@ -1,0 +1,63 @@
+<html>
+    <head>
+        <title>Task Manager</title>
+        <link href="/css/styles.css" rel="stylesheet">
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="content">
+            <div class="header">
+                 <img src="/images/logo.png" class="logo">
+                    <nav>
+                        <ul>
+                           <li>
+                               <a href="/addnew">Add New Task</a>
+                           </li>
+                           <li>
+                                <a href="/removeCompleted">Remove Completed Tasks</a>
+                            </li>
+                        
+                         </ul>
+                     </nav>
+            </div>
+            <div class="tables">
+                    <h4>List of Task To Do</h4>
+                    <table class="table table-bordered">
+                        <thead>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>Due Date</th>
+                            <th>Assined To</th>
+                            <th>Description</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </thead>
+                        <tbody>
+                            <% for(let i=0; i< taskDb.length; i++) { %>
+                                <tr>
+                                    <td><%= taskDb[i]._id %></td>
+                                    <td><%= taskDb[i].taskname %></td>
+                                    <td><%= (taskDb[i].duedate).toDateString() %></td>
+                                    <td><%= taskDb[i].assigned %></td>
+                                    <td><%= taskDb[i].description %></td>
+                                    <td><%= taskDb[i].status %></td>
+                                    <td>
+                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    Action
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                <a class="dropdown-item" href="<%='/getTask/'+taskDb[i]._id %>">Update</a>
+                                                <a class="dropdown-item" href="<%='/deleteTask/'+taskDb[i]._id %>">Delete</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            <% } %>
+                        </tbody>
+                    </table>
+            </div>
+        </div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    </body>
+</html>
